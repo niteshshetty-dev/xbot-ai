@@ -34,9 +34,7 @@ export default function Home() {
       },
       {
         type: "AI",
-        text:
-          match?.response ||
-          "As an AI Language Model, I don’t have the details",
+        text: match?.response || "Sorry, Did not understand your query!",
         time: new Date(),
         id: chatId + 1,
       },
