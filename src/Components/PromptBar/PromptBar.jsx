@@ -40,6 +40,7 @@ export default function PromptBar({ prompt, setPrompt, handleChat, saveChat }) {
             Ask
           </Button>
           <Button
+            type="button"
             variant="outlined"
             onClick={saveChat}
             sx={{
