@@ -9,7 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import ChatHistoryCard from "../../Components/ChatHistoryCard/ChatHistoryCard";
 import ChatFilter from "../../Components/ChatFilter/ChatFilter";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../Components/NavBar/NavBar";
 
 export default function History() {
   const [chats, setChats] = useState([]);
