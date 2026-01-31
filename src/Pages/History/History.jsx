@@ -7,7 +7,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import { useEffect, useState } from "react";
-import ChatHistoryCard from "../../components/ChatHistoryCard/ChatHistoryCard";
+import ChatHistoryCard from "../../Components/ChatHistoryCard/ChatHistoryCard";
 import ChatFilter from "../../Components/ChatFilter/ChatFilter";
 import Navbar from "../../components/Navbar/Navbar";
 
