@@ -9,6 +9,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function App() {
   const [mode, setMode] = useState(localStorage.getItem("mode") || "light");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [prompt, setPrompt] = useState("");
 
   useEffect(() => {
     localStorage.setItem("mode", mode);
@@ -33,12 +35,25 @@ function App() {
               position={{ xs: "fixed", md: "relative" }}
               height={"100vh"}
               zIndex={{ xs: 9999, md: 1 }}
-              sx={{ bgcolor: "primary.light" }}
+              sx={{
+                bgcolor: "primary.light",
+                "@media (max-width:800px)": {
+                  width: "70%",
+                  transform: menuOpen ? "translateX(0)" : "translateX(-100%)",
+                  transition: "transform 400ms ease",
+                },
+              }}
             >
-              <SideBar />
+              <SideBar setConversation closeMenu={() => setMenuOpen(false)} />
             </Grid>
             <Grid size={{ xs: 12, md: 9.5 }}>
-              <Outlet />
+              <Outlet
+                context={{
+                  prompt,
+                  setPrompt,
+                  handleMobileMenu: () => setMenuOpen(true),
+                }}
+              />
             </Grid>
           </Grid>
         </ThemeProvider>

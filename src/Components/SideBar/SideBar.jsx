@@ -6,13 +6,9 @@ import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 
-export default function Sidebar({ setChat, closeMenu }) {
-  const { mode, setMode } = useContext(ThemeContext);
+export default function Sidebar({ setConversation, closeMenu }) {
+  const { mode } = useContext(ThemeContext);
   const isMobile = useMediaQuery("(max-width:800px)");
-
-  const handleMode = () => {
-    setMode((prev) => (prev === "light" ? "dark" : "light"));
-  };
 
   return (
     <Box>
@@ -33,7 +29,7 @@ export default function Sidebar({ setChat, closeMenu }) {
       <Link to={"/"} style={{ textDecoration: "none" }}>
         <Stack
           onClick={() => {
-            setChat([]);
+            setConversation([]);
             closeMenu();
           }}
           sx={{
