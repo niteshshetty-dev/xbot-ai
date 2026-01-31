@@ -10,7 +10,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 function App() {
   const [mode, setMode] = useState(localStorage.getItem("mode") || "light");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [prompt, setPrompt] = useState("");
+  const [prompt, setPrompt] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("mode", mode);
@@ -44,7 +44,10 @@ function App() {
                 },
               }}
             >
-              <SideBar setConversation closeMenu={() => setMenuOpen(false)} />
+              <SideBar
+                setConversation={setPrompt}
+                closeMenu={() => setMenuOpen(false)}
+              />
             </Grid>
             <Grid size={{ xs: 12, md: 9.5 }}>
               <Outlet

@@ -39,6 +39,7 @@ export default function Home() {
         id: chatId + 1,
       },
     ]);
+
     setChatId((prev) => prev + 2);
   }
   function saveChat() {
