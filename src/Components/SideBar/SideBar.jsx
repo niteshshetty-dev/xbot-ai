@@ -55,13 +55,15 @@ export default function Sidebar({ setConversation, closeMenu }) {
               boxShadow={4}
               flexShrink={0}
             />
-            <Typography
-              variant={"heading"}
-              fontSize={{ xs: 16, md: 20 }}
-              color={"text.primary"}
-            >
-              New Chat
-            </Typography>
+            <span>
+              <Typography
+                variant={"heading"}
+                fontSize={{ xs: 16, md: 20 }}
+                color={"text.primary"}
+              >
+                New Chat
+              </Typography>
+            </span>
           </Stack>
           <Box
             component={"img"}

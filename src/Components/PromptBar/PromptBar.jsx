@@ -10,7 +10,7 @@ export default function PromptBar({ prompt, setPrompt, handleChat, saveChat }) {
           p={{ xs: 2, md: 3 }}
         >
           <TextField
-            placeholder="Message Bot Ai..."
+            placeholder="Message Bot AI..."
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             sx={{
