@@ -8,6 +8,7 @@ import PromptBar from "../../Components/PromptBar/PromptBar";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 import ChattingCard from "../../Components/ConversationCard/ConversationCard";
+import FeedbackModal from "../../Components/FeedbackModal/FeedbackModal";
 
 export default function Home() {
   const [conversation, setConversation] = useState([]);
@@ -118,6 +119,12 @@ export default function Home() {
               <Button size="small">See past conversations</Button>
             </Link>
           }
+        />
+        <FeedbackModal
+          open={showModal}
+          updateChat={setConversation}
+          chatId={selectedChatId}
+          handleClose={() => setShowModal(false)}
         />
       </Stack>
     </>
