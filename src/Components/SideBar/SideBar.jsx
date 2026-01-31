@@ -5,10 +5,13 @@ import icon from "../../assets/newchat.png";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router-dom";
 
 export default function Sidebar({ setConversation, closeMenu }) {
   const { mode } = useContext(ThemeContext);
   const isMobile = useMediaQuery("(max-width:800px)");
+
+  const navigate = useNavigate();
 
   return (
     <Box>
@@ -26,55 +29,53 @@ export default function Sidebar({ setConversation, closeMenu }) {
         </Button>
       )}
 
-      <Link to={"/"} style={{ textDecoration: "none" }}>
-        <Stack
-          onClick={() => {
-            setConversation([]);
-            closeMenu();
-          }}
-          sx={{
-            bgcolor: "primary.main",
-            "&:hover ": {
-              bgcolor: "primary.bg",
-            },
-          }}
-          direction={"row"}
-          spacing={1}
-          alignItems={"center"}
-          justifyContent={"space-between"}
-          py={2}
-          px={{ xs: 2, md: 3 }}
-        >
-          <Stack direction={"row"} gap={1} alignItems={"center"}>
-            <Box
-              component={"img"}
-              src={logo}
-              height={42}
-              width={42}
-              borderRadius={2}
-              boxShadow={4}
-              flexShrink={0}
-            />
-
-            <Typography
-              variant={"heading"}
-              component={"span"}
-              fontSize={{ xs: 16, md: 20 }}
-              color={"text.primary"}
-            >
-              New Chat
-            </Typography>
-          </Stack>
+      <Stack
+        onClick={() => {
+          setConversation([]);
+          closeMenu();
+          navigate("/");
+        }}
+        sx={{
+          bgcolor: "primary.main",
+          "&:hover ": {
+            bgcolor: "primary.bg",
+          },
+        }}
+        direction={"row"}
+        spacing={1}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+        py={2}
+        px={{ xs: 2, md: 3 }}
+      >
+        <Stack direction={"row"} gap={1} alignItems={"center"}>
           <Box
             component={"img"}
-            src={icon}
+            src={logo}
             height={42}
             width={42}
             borderRadius={2}
+            boxShadow={4}
             flexShrink={0}
           />
+
+          <Typography
+            variant={"body1"}
+            fontSize={{ xs: 16, md: 20 }}
+            color={"text.primary"}
+          >
+            New Chat
+          </Typography>
         </Stack>
-      </Link>
+        <Box
+          component={"img"}
+          src={icon}
+          height={42}
+          width={42}
+          borderRadius={2}
+          flexShrink={0}
+        />
+      </Stack>
 
       <Box p={{ xs: 2, md: 3 }}>
         <Link to={"/history"}>
